@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start:linux":"sudo node server.js",
+    "start:window":"node server.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

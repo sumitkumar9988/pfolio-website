@@ -20,16 +20,7 @@ const S3 = {
 }
 const store = require('le-store-s3').create({ S3 })
 
-function approveDomains(opts, certs, cb) {
-    opts.challenges = { 'http-01': http01 }
-    opts.email = "sumit.firstletter@gmail.com"
 
-    if (certs) {
-        opts.domains = [certs.subject].concat(certs.altnames)
-    }
-    opts.agreeTos = true
-    cb(null, { options: opts, certs: certs })
-}
 nextApp.prepare().then(() => {
 
     app.all("*", (req, res) => handle(req, res));
@@ -51,6 +42,16 @@ nextApp.prepare().then(() => {
         renewWithin: 14 * 24 * 60 * 60 * 1000
     })
 
+    function approveDomains(opts, certs, cb) {
+        opts.challenges = { 'http-01': http01 }
+        opts.email = "sumit.firstletter@gmail.com"
+    
+        if (certs) {
+            opts.domains = [certs.subject].concat(certs.altnames)
+        }
+        opts.agreeTos = true
+        cb(null, { options: opts, certs: certs })
+    }
     greenlock.listen(80, 443)
     // server.listen(PORT, err => {
     //     if (err) throw err;
