@@ -1,13 +1,13 @@
-const express = require("express");
+const express =require("express");
 const app = express();
-const { createProxyMiddleware } = require('http-proxy-middleware')
+const { createProxyMiddleware } =require("http-proxy-middleware");
 const server = require("http").Server(app);
 const next = require("next");
 const path = require('path')
 const dev = process.env.NODE_ENV !== "production";
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
-require("dotenv").config({ path: ".env" });
+require("dotenv").config();
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
 const http01 = require('le-challenge-fs').create({ webrootPath: '/tmp/acme-challenges' })

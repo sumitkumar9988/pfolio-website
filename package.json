@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start:linux":"sudo node server.js",
-    "start:window":"node server.js",
+    "start:linux": "sudo node server.js",
+    "start:window": "node server.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -17,7 +17,7 @@
     "http-proxy-middleware": "^2.0.1",
     "le-challenge-fs": "^2.0.9",
     "le-store-s3": "^1.0.4",
-    "next": "11.1.2",
+    "next": "^11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
