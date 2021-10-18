@@ -24,37 +24,37 @@ const store = require('le-store-s3').create({ S3 })
 nextApp.prepare().then(() => {
 
     app.all("*", (req, res) => handle(req, res));
-    // const greenlock = require('greenlock-express').create({
-    //     server: 'https://acme-v02.api.letsencrypt.org/directory',
-    //     version: 'draft-11',
-    //     configDir: path.join(__dirname, 'acme'),
-    //     approveDomains,
-    //     app: app.use('/',
-    //         createProxyMiddleware({
-    //             target: 'http://pfolio.site',
-    //             changeOrigin: true
-    //         })
-    //     ),
-    //     communityMember: true,
-    //     store,
-    //     debug: process.env.NODE_ENV === 'development',
-    //     renewBy: 10 * 24 * 60 * 60 * 1000,
-    //     renewWithin: 14 * 24 * 60 * 60 * 1000
-    // })
+    const greenlock = require('greenlock-express').create({
+        server: 'https://acme-v02.api.letsencrypt.org/directory',
+        version: 'draft-11',
+        configDir: path.join(__dirname, 'acme'),
+        approveDomains,
+        app: app.use('/',
+            createProxyMiddleware({
+                target: 'http://pfolio.site',
+                changeOrigin: true
+            })
+        ),
+        communityMember: true,
+        store,
+        debug: true,
+        renewBy: 10 * 24 * 60 * 60 * 1000,
+        renewWithin: 14 * 24 * 60 * 60 * 1000
+    })
 
-    // function approveDomains(opts, certs, cb) {
-    //     opts.challenges = { 'http-01': http01 }
-    //     opts.email = "sumit.firstletter@gmail.com"
+    function approveDomains(opts, certs, cb) {
+        opts.challenges = { 'http-01': http01 }
+        opts.email = "sumit.firstletter@gmail.com"
 
-    //     if (certs) {
-    //         opts.domains = [certs.subject].concat(certs.altnames)
-    //     }
-    //     opts.agreeTos = true
-    //     cb(null, { options: opts, certs: certs })
-    // }
-    // greenlock.listen(80, 443)
-    server.listen(PORT, err => {
-        if (err) throw err;
-        console.log("Express server running");
-    });
+        if (certs) {
+            opts.domains = [certs.subject].concat(certs.altnames)
+        }
+        opts.agreeTos = true
+        cb(null, { options: opts, certs: certs })
+    }
+    greenlock.listen(80, 443)
+    // server.listen(PORT, err => {
+    //     if (err) throw err;
+    //     console.log("Express server running");
+    // });
 });
