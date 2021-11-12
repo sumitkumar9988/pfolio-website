@@ -1,17 +1,17 @@
-const express = require("express");
 const app =require('./app');
 const axios = require("axios");
 const path = require("path");
+require('dotenv').config();
 const http01 = require("le-challenge-fs").create({
   webrootPath: "/tmp/acme-challenges",
 });
 // const api = require("./src/url");
 
 const S3 = {
-  bucketName: "firstletter-multimedia",
-  region: "ap-south-1",
-  accessKeyId: "AKIA5B57ULBUO35OYLXA",
-  secretAccessKey: "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",
+  bucketName: process.env.bucketName,
+  region: process.env.region,
+  accessKeyId:process.env.accessKeyId ,
+  secretAccessKey:process.env.secretAccessKey ,
 };
 const store = require("le-store-s3").create({ S3 });
 
