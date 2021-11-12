@@ -2,7 +2,7 @@ const express = require('express')
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express()
-// app.use(express.static('build'));
+app.use(express.static('build'));
 
 app.use(
     "/",
