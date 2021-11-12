@@ -2,27 +2,56 @@
   "name": "pfolio-website",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "start:linux": "sudo node server.js",
-    "start:window": "node server.js",
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "@craco/craco": "^6.4.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
+    "clsx": "^1.1.1",
     "express": "^4.17.1",
     "greenlock-express": "^2.0.11",
     "http-proxy-middleware": "^2.0.1",
     "le-challenge-fs": "^2.0.9",
     "le-store-s3": "^1.0.4",
-    "next": "^11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^6.0.2",
+    "react-scripts": "4.0.3",
+    "react-spinners": "^0.11.0",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "backend:linux": "sudo nodemon server.js",
+    "backend:window": "nodemon server.js",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "eslint": "8.0.1",
-    "eslint-config-next": "11.1.2"
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }
