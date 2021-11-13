@@ -16,13 +16,26 @@ import Footer from "./components/Footer";
 
 const Index = () => {
   const [loading, setLoading] = React.useState(true);
-  const [user, setUser] = React.useState({});
+  const [user, setUser] = React.useState();
   const [error, setError] = React.useState();
-  const [theme, setTheme] = React.useState({});
+  const [theme, setTheme] = React.useState();
 
-  const host=window.location.hostname;
+  // const [bgColor1, setBgColor1] = React.useState('');
+  // const [bgColor2, setBgColor2] = React.useState('');
+  // const [bgTextColor, setBgTextColor] = React.useState('');
+  // const [textColor1, setTextColor1] = React.useState('');
+  // const [textColor2, setTextColor2] = React.useState('');
+  // setBgColor1(res.data.data.bgColor1)
+  // setBgColor2(res.data.data.bgColor2)
+  // setBgTextColor(res.data.data.bgTextColor)
+  // setTextColor1( res.data.data.textColor1)
+  // setTextColor2( res.data.data.textColor2)
+  // console.log("1",res.data.data.bgColor1)
+
+  const host = window.location.hostname;
   console.log(host);
   const fetchProfile = () => {
+    setLoading(true);
     axios
       .get(`${api}/profile/domain`, {
         headers: {
@@ -32,11 +45,11 @@ const Index = () => {
       .then((res) => {
         setUser(res.data.data);
         const themeData = {
-          bgColor1: res.data.data.bgColor1 || "bg-white",
-          bgColor2: res.data.data.bgColor2 || "bg-gray-200",
-          bgTextColor: res.data.data.bgTextColor || "bg-black",
-          textColor1: res.data.data.textColor1 || "text-black",
-          textColor2: res.data.data.textColor2 || "text-gray-700",
+          bgColor1: res.data.data.bgColor1,
+          bgColor2: res.data.data.bgColor2,
+          bgTextColor: res.data.data.bgTextColor,
+          textColor1: res.data.data.textColor1,
+          textColor2: res.data.data.textColor2,
         };
         setTheme(themeData);
         console.log(themeData);
@@ -57,6 +70,15 @@ const Index = () => {
   React.useEffect(() => {
     fetchProfile();
   }, []);
+
+  // React.useEffect(() => {
+  //   if(!theme.bgColor1 && !theme.bgColor2 && !theme.textColor1 && !theme.textColor2 && theme.bgTextColor2){
+  //     fetchProfile();
+  //   }
+  //   if(!user.data){
+  //     fetchProfile();
+  //   }
+  // }, [theme,user]);
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 // import { useHeaderVisible } from "./../utils/useHeaderVisible";
 
 const Headers = ({ theme, user }) => {
@@ -20,5 +21,10 @@ const Headers = ({ theme, user }) => {
     </div>
   );
 };
+
+Headers.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Headers;

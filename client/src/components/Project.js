@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ProjectCard from "./Card/ProjectCard";
+import PropTypes from 'prop-types';
+
 
 const Project = ({ theme, user }) => {
   const [project, setProject] = useState(user.project);
@@ -29,5 +31,10 @@ const Project = ({ theme, user }) => {
     </div>
   );
 };
+
+Project.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Project;

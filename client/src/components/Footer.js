@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const Footer = ({ theme, user }) => {
   return (
@@ -9,5 +11,11 @@ const Footer = ({ theme, user }) => {
     </p>
   );
 };
+
+Footer.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
+
 
 export default Footer;

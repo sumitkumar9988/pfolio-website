@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const Contact = ({ theme, user }) => {
   return (
@@ -25,5 +27,9 @@ const Contact = ({ theme, user }) => {
     </div>
   );
 };
+Contact.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Contact;

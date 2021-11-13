@@ -7,6 +7,8 @@ import {
   AiFillBehanceCircle,
   AiFillLinkedin,
 } from "react-icons/ai";
+import PropTypes from 'prop-types';
+
 
 const Hero = ({ theme, user }) => {
   return (
@@ -84,5 +86,10 @@ const Hero = ({ theme, user }) => {
     </div>
   );
 };
+
+Hero.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Hero;

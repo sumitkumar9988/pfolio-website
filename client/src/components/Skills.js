@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Skills = ({ theme, user }) => {
   return (
@@ -31,5 +32,11 @@ const Skills = ({ theme, user }) => {
     </div>
   );
 };
+
+
+Skills.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Skills;

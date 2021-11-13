@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./Card/Education";
+import PropTypes from 'prop-types';
 
 const Experience = ({ theme, user }) => {
   const [education, setEducation] = React.useState(user.education);
@@ -67,5 +68,11 @@ const Experience = ({ theme, user }) => {
     </div>
   );
 };
+
+
+Experience.propTypes={
+  theme: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+}
 
 export default Experience;
