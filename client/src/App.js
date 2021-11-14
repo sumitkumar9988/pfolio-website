@@ -94,7 +94,7 @@ const Index = () => {
             <link rel="canonical" href={`${user.username}.pfolio.me`} />
             <meta name="description" content={user.bio} />
           </Helmet>
-          <div className={clsx("h-full ", theme.bgColor1)}>
+          <div className={`h-full ${theme.bgColor1}`}>
             <Header user={user} theme={theme} />
             <Hero user={user} theme={theme} />
             <Skills user={user} theme={theme} />

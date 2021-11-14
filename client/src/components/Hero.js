@@ -7,8 +7,7 @@ import {
   AiFillBehanceCircle,
   AiFillLinkedin,
 } from "react-icons/ai";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 const Hero = ({ theme, user }) => {
   return (
@@ -18,10 +17,7 @@ const Hero = ({ theme, user }) => {
           <img
             src={user.photo}
             alt="me"
-            className={clsx(
-              "border  rounded-full w-24 h-24 object-cover bg-transparent  md:w-36 md:h-36 mt-36",
-              theme["bg-color-2"]
-            )}
+            className={`border rounded-full w-24 h-24 object-cover bg-transparent  md:w-36 md:h-36 mt-36 ${theme.textColor1}}`}
           />
           <div className="flex items-center">
             <h1
@@ -87,9 +83,9 @@ const Hero = ({ theme, user }) => {
   );
 };
 
-Hero.propTypes={
+Hero.propTypes = {
   theme: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
-}
+};
 
 export default Hero;

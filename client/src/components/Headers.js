@@ -11,7 +11,7 @@ const Headers = ({ theme, user }) => {
         <div>
           <Link to="/">
             <div
-              className={`${theme.textColor1} text-2xl mx-8 lg:mx-16 font-rubik font-semibold `}
+              className={` text-2xl mx-8 lg:mx-16 font-rubik font-semibold ${theme.textColor1}`}
             >
               {user.name.split(" ")[0]}
             </div>
