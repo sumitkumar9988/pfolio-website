@@ -3,7 +3,8 @@ import ProjectCard from "./Card/ProjectCard";
 import PropTypes from 'prop-types';
 
 
-const Project = ({ theme, user }) => {
+
+const Project = ({ user }) => {
   const [project, setProject] = useState(user.project);
   return (
     <div>
@@ -11,7 +12,7 @@ const Project = ({ theme, user }) => {
         <div className="mt-20 mb-4 ">
           <div>
             <p
-              className={`md:mt-28 ml-8 md:ml-16 lg:ml-32 text-2xl font-bold md:text-3xl font-rubik   ${theme.textColor1}`}
+              className="md:mt-28 ml-8 md:ml-16 lg:ml-32 text-2xl font-bold md:text-3xl font-rubik   text-white"
             >
               Project
             </p>
@@ -22,7 +23,6 @@ const Project = ({ theme, user }) => {
                 key={i}
                 rightShift={i % 2 === 0}
                 {...project}
-                theme={theme}
               />
             ))}
           </div>
@@ -33,7 +33,6 @@ const Project = ({ theme, user }) => {
 };
 
 Project.propTypes={
-  theme: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
 }
 

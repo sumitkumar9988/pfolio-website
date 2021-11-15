@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 
-const Footer = ({ theme, user }) => {
+const Footer = ({  user }) => {
   return (
-    <p className={`py-8 text-sm font-light text-center ${theme.textColor1}`}>
+    <p className="py-8 text-sm font-light text-center text-white">
       <p className="hover:opacity-80 transition-opacity" rel="noreferrer">
         {user.name.split(" ")[0]} .
       </p>
@@ -13,7 +13,6 @@ const Footer = ({ theme, user }) => {
 };
 
 Footer.propTypes={
-  theme: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
 }
 
