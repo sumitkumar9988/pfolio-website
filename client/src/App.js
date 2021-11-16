@@ -46,12 +46,13 @@ const Index = () => {
   };
 
   React.useEffect(() => {
-    fetchProfile();
+    if(host==='pfolio.site'){
+        setError('Something went wrong!')
+    }else{
+      fetchProfile();
+    }
   }, []);
-
-
- 
-
+  
   return (
     <div>
       {loading ? (
