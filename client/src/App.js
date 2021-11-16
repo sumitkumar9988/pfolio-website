@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import axios from "axios";
 import Error from "./utils/FourOFour";
 import api from "./url";
@@ -20,13 +20,14 @@ const Index = () => {
 
 
   const host = window.location.hostname;
+ 
   console.log(host);
-  const fetchProfile = () => {
+  const fetchProfile = (website) => {
     setLoading(true);
     axios
-      .get(`${api}/profile/domain`, {
+      .get(`https://api.sumitk.site/api/v1/profile/domain`, {
         headers: {
-          domain: host,
+          domain: website,
         },
       })
       .then((res) => {
@@ -45,13 +46,13 @@ const Index = () => {
       });
   };
 
-  React.useEffect(() => {
-    if(host==='pfolio.site'){
-        setError('Something went wrong!')
-    }else{
-      fetchProfile();
-    }
-  }, []);
+  useEffect(()=>{
+    fetchProfile(host);   
+  },[host])
+
+  if(host === 'pfolio.site'){
+    return <p>own by pfolio.me</p>
+  }
   
   return (
     <div>

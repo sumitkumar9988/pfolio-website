@@ -5,7 +5,6 @@ require('dotenv').config();
 const http01 = require("le-challenge-fs").create({
   webrootPath: "/tmp/acme-challenges",
 });
-// const api = require("./src/url");
 
 const S3 = {
   bucketName: process.env.bucketName,
