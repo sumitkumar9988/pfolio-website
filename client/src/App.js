@@ -17,15 +17,15 @@ const Index = () => {
   const [loading, setLoading] = React.useState(true);
   const [user, setUser] = React.useState();
   const [error, setError] = React.useState();
-
-
+  
   const host = window.location.hostname;
- 
+  
+
   console.log(host);
   const fetchProfile = (website) => {
     setLoading(true);
     axios
-      .get(`https://api.sumitk.site/api/v1/profile/domain`, {
+      .get(`https://nighteye.co/api/v1/profile/domain`, {
         headers: {
           domain: website,
         },
@@ -46,14 +46,14 @@ const Index = () => {
       });
   };
 
-  useEffect(()=>{
-    fetchProfile(host);   
-  },[host])
+  useEffect(() => {
+    fetchProfile(host);
+  }, [host]);
 
-  if(host === 'pfolio.site'){
-    return <p>own by pfolio.me</p>
+  if (host === "pfolio.site") {
+    return <p>own by pfolio.me</p>;
   }
-  
+
   return (
     <div>
       {loading ? (
